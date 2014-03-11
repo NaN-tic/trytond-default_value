@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- This file is part of the default_value module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="default_value_tree_view">
+            <field name="model">default.value</field>
+            <field name="type">tree</field>
+            <field name="name">default_value_tree</field>
+        </record>
+        <record model="ir.ui.view" id="default_value_form_view">
+            <field name="model">default.value</field>
+            <field name="type">form</field>
+            <field name="name">default_value_form</field>
+        </record>
+        <record model="ir.action.act_window" id="action_default_value">
+            <field name="name">Default Values</field>
+            <field name="res_model">default.value</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_default_value_tree_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="default_value_tree_view"/>
+            <field name="act_window" ref="action_default_value"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_default_value_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="default_value_form_view"/>
+            <field name="act_window" ref="action_default_value"/>
+        </record>
+
+        <record model="ir.model.access" id="access_default_value">
+            <field name="model" search="[('model', '=', 'default.value')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_default_value_admin">
+            <field name="model" search="[('model', '=', 'default.value')]"/>
+            <field name="group" ref="res.group_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <menuitem name="Default Values"
+            id="default_value_menu"
+            action="action_default_value"
+            parent="ir.menu_models"/>
+    </data>
+</tryton>

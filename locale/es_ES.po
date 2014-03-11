@@ -1,0 +1,122 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:default.value:"
+msgid "The field %s has already a default value."
+msgstr "El campo %s ya tiene un valor por defecto."
+
+msgctxt "error:default.value:"
+msgid "The field %s is a functional field."
+msgstr "El campo %s es un campo funcional."
+
+msgctxt "error:default.value:"
+msgid ""
+"You can not define more than one default value for the same model and field."
+msgstr ""
+"No puede definir más de una vez un valor por defecto para el mismo modelo y "
+"campo."
+
+msgctxt "field:default.value,boolean:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,char:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,create_date:"
+msgid "Create Date"
+msgstr "Fecha creación"
+
+msgctxt "field:default.value,create_uid:"
+msgid "Create User"
+msgstr "Usuario creación"
+
+msgctxt "field:default.value,date:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,datetime:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,default_value:"
+msgid "Default Value"
+msgstr "Valor por defecto"
+
+msgctxt "field:default.value,field:"
+msgid "Field"
+msgstr "Campo"
+
+msgctxt "field:default.value,field_type:"
+msgid "Field Type"
+msgstr "Tipo de campo"
+
+msgctxt "field:default.value,float:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:default.value,integer:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,many2one:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,model:"
+msgid "Model"
+msgstr "Modelo"
+
+msgctxt "field:default.value,numeric:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:default.value,reference:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,selection:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,text:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,time:"
+msgid "Value"
+msgstr "Valor"
+
+msgctxt "field:default.value,write_date:"
+msgid "Write Date"
+msgstr "Fecha modificación"
+
+msgctxt "field:default.value,write_uid:"
+msgid "Write User"
+msgstr "Usuario modificación"
+
+msgctxt "model:default.value,name:"
+msgid "Default Value"
+msgstr "Valor por defecto"
+
+msgctxt "model:ir.action,name:action_default_value"
+msgid "Default Values"
+msgstr "Valores por defecto"
+
+msgctxt "model:ir.ui.menu,name:default_value_menu"
+msgid "Default Values"
+msgstr "Valores por defecto"
+
+msgctxt "view:default.value:"
+msgid "Default Value"
+msgstr "Valor por defecto"

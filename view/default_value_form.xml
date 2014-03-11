@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- This file is part of the default_value module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Default Value">
+    <label name="model"/>
+    <field name="model"/>
+    <label name="field"/>
+    <field name="field"/>
+    <label name="field_type"/>
+    <field name="field_type"/>
+    <group col="2" colspan="2" id="field_value">
+        <label name="boolean"/>
+        <field name="boolean"/>
+        <label name="char"/>
+        <field name="char"/>
+        <label name="integer"/>
+        <field name="integer"/>
+        <label name="text"/>
+        <field name="text"/>
+        <label name="float"/>
+        <field name="float"/>
+        <label name="numeric"/>
+        <field name="numeric"/>
+        <label name="date"/>
+        <field name="date"/>
+        <label name="datetime"/>
+        <field name="datetime"/>
+        <label name="time"/>
+        <field name="time"/>
+        <label name="selection"/>
+        <field name="selection"/>
+        <label name="reference"/>
+        <field name="reference"/>
+        <label name="many2one"/>
+        <field name="many2one"/>
+    </group>
+</form>
