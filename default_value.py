@@ -175,9 +175,11 @@ class DefaultValue(ModelSQL, ModelView):
         return super(DefaultValue, cls).create(vlist)
 
     @classmethod
-    def write(cls, default_values, vals):
-        super(DefaultValue, cls).write(default_values, vals)
-        cls.set_default_values(default_values)
+    def write(cls, *args):
+        super(DefaultValue, cls).write(*args)
+        actions = iter(args)
+        for default_values, _ in zip(actions, actions):
+            cls.set_default_values(default_values)
 
     @classmethod
     def delete(cls, default_values):
