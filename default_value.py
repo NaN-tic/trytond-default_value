@@ -36,8 +36,7 @@ class DefaultValue(ModelSQL, ModelView):
     field_type = fields.Function(fields.Char('Field Type', readonly=True,
             states={
                 'invisible': ~Bool(Eval('field')),
-                },
-            on_change_with=['field']),
+                }),
         'on_change_with_field_type')
     default_value = fields.Char('Default Value', readonly=True)
     boolean = fields.Function(fields.Boolean('Value',
