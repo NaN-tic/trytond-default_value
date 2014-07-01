@@ -252,7 +252,7 @@ class DefaultValue(ModelSQL, ModelView):
             elif name == 'integer':
                 return int(value) or 0
             elif name == 'float':
-                return float(value) or 0.0
+                return float(value) if value else 0.0
             elif name == 'numeric':
                 return Decimal(value) or Decimal('0.0')
             elif name == 'date':
