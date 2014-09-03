@@ -250,11 +250,11 @@ class DefaultValue(ModelSQL, ModelView):
             if name == 'boolean':
                 return True if value == 'True' else False
             elif name == 'integer':
-                return int(value) or 0
+                return int(value) if value else 0
             elif name == 'float':
                 return float(value) if value else 0.0
             elif name == 'numeric':
-                return Decimal(value) or Decimal('0.0')
+                return Decimal(value) if value else Decimal('0.0')
             elif name == 'date':
                 return (value
                     and date(int(value[:4]), int(value[5:7]), int(value[8:]))
