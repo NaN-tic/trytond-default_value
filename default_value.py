@@ -236,6 +236,7 @@ class DefaultValue(ModelSQL, ModelView):
             exec def_default_function
             Model._defaults[field_name] = eval('default_%s' % field_name)
 
+    @fields.depends('field')
     def on_change_with_field_type(self, name=None):
         return self.field.ttype if self.field else None
 
