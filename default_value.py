@@ -13,6 +13,8 @@ import logging
 import threading
 
 __all__ = ['DefaultValue']
+
+logger = logging.getLogger(__name__)
 _FIELD_TYPES = ['boolean', 'char', 'integer', 'text', 'float', 'numeric',
     'date', 'datetime', 'time', 'many2one', 'selection', 'reference']
 
@@ -154,7 +156,7 @@ class DefaultValue(ModelSQL, ModelView):
             try:
                 cls.set_default_values()
             except:
-                logging.getLogger('Default Values').warning(
+                logger.warning(
                     'Error loading default values. Try reload them again by '
                     'restarting the server')
 
