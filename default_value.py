@@ -167,7 +167,7 @@ class DefaultValue(ModelSQL, ModelView):
         for val in vlist:
             field, = Field.search([('id', '=', val['field'])])
             model = pool.get(field.model.model)
-            if field.name in field._defaults:
+            if hasattr(model, 'default_%s' % field.name):
                 cls.raise_user_error('field_has_default_value',
                     error_args=field.name)
             if isinstance(model._fields[field.name], fields.Function):
