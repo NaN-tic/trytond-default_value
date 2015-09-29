@@ -138,7 +138,7 @@ class DefaultValue(ModelSQL, ModelView):
     def __post_setup__(cls):
         super(DefaultValue, cls).__post_setup__()
         pool = Pool()
-        Module = pool.get('ir.module.module')
+        Module = pool.get('ir.module')
         modules = Module.search([
             ('name', '=', 'default_value'),
             ('state', '=', 'installed'),
