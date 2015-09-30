@@ -243,11 +243,6 @@ class DefaultValue(ModelSQL, ModelView):
     def on_change_with_field_type(self, name=None):
         return self.field.ttype if self.field else None
 
-    @classmethod
-    def set_selection(cls, selection):
-        cls.selection.selection = selection
-        cls.save(self)
-
     def get_value(self, name):
         if self.field_type == name:
             value = self.default_value
