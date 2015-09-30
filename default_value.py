@@ -4,7 +4,7 @@
 from datetime import date, datetime, time
 from decimal import Decimal
 from time import sleep
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pool import Pool
 from trytond.pyson import Bool, Eval
 from trytond.rpc import RPC
@@ -105,15 +105,16 @@ class DefaultValue(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DefaultValue, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('default_uniq', 'UNIQUE(field)', 'unique_default'),
-            ]
+            ('default_uniq', Unique(t, t.field), 
+                'You can not define more than one default '
+                    'value for the same model and field.'),
+        ]
         cls._error_messages.update({
                 'field_has_default_value': 'The field %s has already a default'
                     ' value.',
                 'field_is_functional': 'The field %s is a functional field.',
-                'unique_default': 'You can not define more than one default '
-                    'value for the same model and field.',
                 })
         cls.__rpc__.update({
                 'get_selection_values': RPC(instantiate=0),
