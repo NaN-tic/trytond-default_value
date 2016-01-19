@@ -79,12 +79,12 @@ class DefaultValue(ModelSQL, ModelView):
     datetime = fields.Function(fields.DateTime('Value',
             states={
                 'invisible': Eval('field_type') != 'datetime',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     time = fields.Function(fields.Time('Value',
             states={
                 'invisible': Eval('field_type') != 'time',
-                }, depends=['field_type']),
+                }),
        'get_value', setter='set_value')
     many2one = fields.Function(fields.Selection('get_selection_values',
             'Value', selection_change_with=['field'], states={
