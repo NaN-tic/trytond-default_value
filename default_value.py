@@ -44,37 +44,37 @@ class DefaultValue(ModelSQL, ModelView):
     boolean = fields.Function(fields.Boolean('Value',
             states={
                 'invisible': Eval('field_type') != 'boolean',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     char = fields.Function(fields.Char('Value',
             states={
                 'invisible': Eval('field_type') != 'char',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     integer = fields.Function(fields.Integer("Value",
             states={
                 'invisible': Eval('field_type') != 'integer',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     text = fields.Function(fields.Text('Value',
             states={
                 'invisible': Eval('field_type') != 'text',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     float = fields.Function(fields.Float('Value',
             states={
                 'invisible': Eval('field_type') != 'float',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     numeric = fields.Function(fields.Numeric('Value',
             states={
                 'invisible': Eval('field_type') != 'numeric',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     date = fields.Function(fields.Date('Value',
             states={
                 'invisible': Eval('field_type') != 'date',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     datetime = fields.Function(fields.DateTime('Value',
             states={
@@ -89,17 +89,17 @@ class DefaultValue(ModelSQL, ModelView):
     many2one = fields.Function(fields.Selection('get_selection_values',
             'Value', selection_change_with=['field'], states={
                 'invisible': Eval('field_type') != 'many2one',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     selection = fields.Function(fields.Selection('get_selection_values',
             'Value', selection_change_with=['field'], states={
                 'invisible': Eval('field_type') != 'selection',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
     reference = fields.Function(fields.Char('Value',
             states={
                 'invisible': Eval('field_type') != 'reference',
-                }, depends=['field_type']),
+                }),
         'get_value', setter='set_value')
 
     @classmethod
@@ -243,6 +243,7 @@ class DefaultValue(ModelSQL, ModelView):
     def on_change_with_field_type(self, name=None):
         return self.field.ttype if self.field else None
 
+    @fields.depends('field_type')
     def get_value(self, name):
         if self.field_type == name:
             value = self.default_value
