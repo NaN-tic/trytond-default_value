@@ -87,12 +87,12 @@ class DefaultValue(ModelSQL, ModelView):
                 }),
        'get_value', setter='set_value')
     many2one = fields.Function(fields.Selection('get_selection_values',
-            'Value', selection_change_with=['field'], states={
+            'Value', states={
                 'invisible': Eval('field_type') != 'many2one',
                 }),
         'get_value', setter='set_value')
     selection = fields.Function(fields.Selection('get_selection_values',
-            'Value', selection_change_with=['field'], states={
+            'Value', states={
                 'invisible': Eval('field_type') != 'selection',
                 }),
         'get_value', setter='set_value')
@@ -243,7 +243,7 @@ class DefaultValue(ModelSQL, ModelView):
     def on_change_with_field_type(self, name=None):
         return self.field.ttype if self.field else None
 
-    @fields.depends('field_type')
+    @fields.depends('field_type', 'field')
     def get_value(self, name):
         if self.field_type == name:
             value = self.default_value
