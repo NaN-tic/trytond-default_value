@@ -107,7 +107,7 @@ class DefaultValue(ModelSQL, ModelView):
         super(DefaultValue, cls).__setup__()
         t = cls.__table__()
         cls._sql_constraints += [
-            ('default_uniq', Unique(t, t.field), 
+            ('default_uniq', Unique(t, t.field),
                 'You can not define more than one default '
                     'value for the same model and field.'),
         ]
@@ -120,6 +120,7 @@ class DefaultValue(ModelSQL, ModelView):
                 'get_selection_values': RPC(instantiate=0),
                 })
 
+    @fields.depends('field')
     def get_selection_values(self, name=None):
         pool = Pool()
         field = self.field
@@ -243,7 +244,7 @@ class DefaultValue(ModelSQL, ModelView):
     def on_change_with_field_type(self, name=None):
         return self.field.ttype if self.field else None
 
-    @fields.depends('field_type', 'field')
+    @fields.depends('field_type', 'default_value')
     def get_value(self, name):
         if self.field_type == name:
             value = self.default_value
