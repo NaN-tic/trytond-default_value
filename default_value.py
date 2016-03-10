@@ -146,7 +146,7 @@ class DefaultValue(ModelSQL, ModelView):
             ('state', '=', 'installed'),
             ])
         if modules:
-            db_name = Transaction().cursor.dbname
+            db_name = Transaction().database.name
             thread1 = threading.Thread(target=cls.load_default_values,
                 args=(db_name, Transaction().user))
             thread1.start()
