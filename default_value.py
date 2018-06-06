@@ -22,7 +22,6 @@ _FIELD_TYPES = ['boolean', 'char', 'integer', 'text', 'float', 'numeric',
 class DefaultValue(ModelSQL, ModelView):
     'Default Value'
     __name__ = 'default.value'
-    _rec_name = 'model'
     model = fields.Many2One('ir.model', 'Model', required=True,
         states={
             'readonly': Bool(Eval('default_value')),
@@ -119,6 +118,10 @@ class DefaultValue(ModelSQL, ModelView):
         cls.__rpc__.update({
                 'get_selection_values': RPC(instantiate=0),
                 })
+
+    def get_rec_name(self, name):
+        if self.model:
+            return self.model.rec_name
 
     @fields.depends('field')
     def get_selection_values(self, name=None):
